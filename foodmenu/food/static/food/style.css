@@ -1,0 +1,25 @@
+.navbar .custom-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+}

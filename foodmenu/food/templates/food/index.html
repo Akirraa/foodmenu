@@ -1,0 +1,44 @@
+{% extends 'food/base.html' %}
+{% block body %}
+<div class="container-fluid" id="item-container" style="margin-top: 60px;">
+    {% for item in item_list %}
+    <div class="row justify-content-center mb-4" data-aos="fade-up" data-aos-duration="100" data-aos-delay="100">
+        <div class="col-md-8">
+            <div class="item-container rounded border p-3 shadow">
+                <div class="row">
+                    <div class="col-md-3 d-flex align-items-center">
+                        <img class="card" style="width: 100%; max-height: 150px;" src="{{item.item_image}}">
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div>
+                            <a href="{% url 'food:detail' item.id %}"
+                                style="font-size: 1.4em; font-weight: bold; text-decoration: none; display: block; margin-bottom: 5px;">{{item.item_name}}</a>
+                            <p>{{item.item_desc}}</p>
+                            <p style="margin-bottom: 5px;">${{item.item_price}}</p>
+                            <p>added by: {{item.user_name}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-center justify-content-start">
+                        <a href="{% url 'food:detail' item.id %}" class="btn btn-info btn-sm"
+                            style="margin-right: 5px;">Details</a>
+                        {% if user.is_authenticated %}
+                        <a href="{% url 'food:edit' item.id %}" class="btn btn-info btn-sm">Edit</a>
+                        {%endif%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({
+            duration: 200,
+            delay: 100,
+            easing: 'ease-out'
+        });
+    });
+</script>
+{% endblock %}
